@@ -1,0 +1,52 @@
+show tables;
+
+quer's insertar caracteristicas:************************************************************************
+
+describe caracteristicas;
+
+insert into caracteristicas (tipo) values ("Turismo");
+insert into caracteristicas (tipo) values ("Supermercados");
+.
+.
+.
+
+modificando columnas
+
+alter table caracteristicas modify id_caract int auto_increment;
+alter table caracteristicas modify tipo varchar(50);
+
+Actualizando datos
+update caracteristicas set tipo="Municipalidades/Ministerios" where id_caract=5;
+
+
+
+quer's insertar recorridos:************************************************************************
+
+describe dir_loc;
+select * from dir_loc;
+insert into dir_loc (id_direccion,patente) values(4 ,"ACBD43");
+
+quer's insertar locomociones:**********************************************************************
+
+describe locomociones;
+select * from locomociones;
+
+insert into locomociones (patente, tipo, linea, h_inicio, h_final, discapacitados) values ("AAAA10","TIPO_LOCOMOCION",Num_linea,'hr_inicio', 'hr_final', BIT_1_0 );
+
+Modificando Columnas:
+
+alter table locomociones change disponibilidad h_inicio time;
+alter table locomociones add h_final time after h_inicio;
+alter table locomociones modify discapacitados bit;
+
+quer's insertar direcciones:************************************************************************
+
+describe direcciones;
+select * from direcciones; 
+select * from direcciones where sector like '%Picarte 3000%' order by nombre ASC;
+select * from direcciones where nombre like '%Picarte%' order by sector ASC;
+insert into direcciones (nombre, ciudad, numero, sector, cod_postal) values ("Intendente Luis Dama", "Valdivia", 0, "Guacamayo", 0); 
+
+actualizar direcciones:
+update direcciones set nombre="Camino A.Angachilla" where id_direccion=17;
+update direcciones set sector="A.Jorge Bustos" where id_direccion=39;
