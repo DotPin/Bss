@@ -1,5 +1,19 @@
 show tables;
 
+
+quer's insertar Lugares-Direcciones:************************************************************************
+
+describe lug_dir;
+insert into lug_dir(id_lugar,id_direccion) values( ENTERNO, ENTERO);
+
+
+quer's insertar Lugares:************************************************************************
+
+describe lugares;
+insert into lugares (nombre, descripcion) values ("Mercado Fluvial","Sector de pescadores artesanales en costanera valdivia");
+
+
+
 quer's insertar caracteristicas:************************************************************************
 
 describe caracteristicas;
@@ -50,3 +64,23 @@ insert into direcciones (nombre, ciudad, numero, sector, cod_postal) values ("In
 actualizar direcciones:
 update direcciones set nombre="Camino A.Angachilla" where id_direccion=17;
 update direcciones set sector="A.Jorge Bustos" where id_direccion=39;
+
+*****************************************************************************************************
+*****************************************************************************************************
+*****************************************************************************************************
+
+
+ combina tabla Entidad:
+ 
+ Lugares / Caracteristicas / Direcciones:
+ select a.nombre as "Lugar",c.tipo, e.nombre as "Direcciones" from lugares a join lug_car b on a.id_lugar = b.id_lugar join caracteristicas c on b.id_caract = c.id_caract join lug_dir d on b.id_lugar = d.id_lugar join direcciones e on d.id_direccion = e.id_direccion join;
+
+ Lugares / Caracteristicas / Direcciones / Locomociones:
+select a.nombre as "Lugar",c.tipo, e.nombre as "Direcciones", e.sector, g.linea from lugares a join lug_car b on a.id_lugar = b.id_lugar join caracteristicas c on b.id_caract = c.id_caract join lug_dir d on b.id_lugar = d.id_lugar join direcciones e on d.id_direccion = e.id_direccion join dir_loc f on d.id_direccion = f.id_direccion join locomociones g on f.patente = g.patente order by c.tipo;
+
+
+
+
+
+
+
